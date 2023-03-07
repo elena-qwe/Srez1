@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:Srez1.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+        x:Class="Srez1.MainWindow"
+        Title="Trash">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        <WrapPanel 
+            Grid.Row="4">
+            <DataGrid x:Name="UserGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding  last_name}" />
+                    <DataGridTextColumn Header="Имя" Binding="{Binding first_name}" />
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding middle_name}"/>
+                    <DataGridTextColumn Header="Домашний адрес" Binding="{Binding address_home}"/>
+                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding phone_number}"/>
+                    <DataGridTextColumn Header="Дата рождения" Binding="{Binding birthday_date}"/>
+                    <DataGridTextColumn Header="Роль" Binding="{Binding Name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </WrapPanel>
+        <WrapPanel
+            Grid.Column="0"
+            Grid.Row="1"
+            Margin="20 10 10 10 ">
+            <TextBlock FontSize="20" Text="Действия с пользователями"/>
+            <Button Margin="20 0 0 0 "> Добавить </Button>
+            <Button Margin="20 0 0 0 "> Удалить </Button>
+            <Button Margin="20 0 0 0 "> Редактировать </Button>
+        </WrapPanel>
+        <WrapPanel
+            Grid.Row="3"
+            Margin="20 10 10 10 "
+            >
+            <TextBlock FontSize="20" Text="Действия с ролями"/>
+            <Button Margin="20 0 0 0 "> Добавить </Button>
+            <Button Name="btnDelete" Click="BtnDelete_OnClick" Margin="20 0 0 0 "> Удалить </Button>
+            <Button Margin="20 0 0 0 "> Редактировать </Button></WrapPanel>
+        <WrapPanel 
+            Grid.Column="1"
+            Grid.Row="2">
+            <DataGrid 
+                x:Name="RoleDataGrid">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="id" Binding="{Binding  id}" />
+                    <DataGridTextColumn Header="Роль" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding last_name}"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding first_name}"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding middle_name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </WrapPanel>
+        </Grid>
+</Window>
